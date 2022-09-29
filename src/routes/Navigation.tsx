@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { IRoute } from "../interface/route.interface";
 import logo from "../logo.svg";
-import { IRoute, routes } from "./routes";
+import { routes } from "./routes";
 
 const Navigation = () => {
   return (
@@ -32,7 +33,7 @@ const Navigation = () => {
               />
             ))}
 
-            <Route path="/*" element={<h1>404</h1>} />
+            <Route path="*" element={<h1>404</h1>} />
           </Routes>
         </div>
       </BrowserRouter>
