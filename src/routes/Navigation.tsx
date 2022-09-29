@@ -1,33 +1,42 @@
-import React from "react";
+import { Suspense } from "react";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import logo from "../logo.svg";
+import { IRoute, routes } from "./routes";
 
 const Navigation = () => {
   return (
-    <BrowserRouter>
-      <div className="main-layout">
-        <nav>
-          <img src={logo} alt="logo" />
-          <ul>
-            <li>
-              <NavLink to={"/"} className={({isActive }) => isActive ? 'nav-active' : ''}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/about"} className={({isActive }) => isActive ? 'nav-active' : ''}>About</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/users"} className={({isActive }) => isActive ? 'nav-active' : ''}>Users</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <Routes>
-            <Route path="about" element={<h1>About</h1>} />
-            <Route path="users" element={<h1>Users</h1>} />
-            <Route path="/" element={<h1>Home</h1>} />
+    <Suspense fallback={<span>Loading</span>}>
+      <BrowserRouter>
+        <div className="main-layout">
+          <nav>
+            <img src={logo} alt="logo" />
+            <ul>
+              {routes.map((route: IRoute) => (
+                <li key={route.to}>
+                  <NavLink
+                    to={route.to}
+                    className={({ isActive }) => (isActive ? "nav-active" : "")}
+                  >
+                    {route.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <Routes>
+            {routes.map((route: IRoute) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<route.Component />}
+              />
+            ))}
+
             <Route path="/*" element={<h1>404</h1>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 
