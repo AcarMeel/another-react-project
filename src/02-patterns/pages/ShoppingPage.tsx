@@ -1,12 +1,18 @@
 import { ProductCard } from "../components/ProductCard";
+import { IProduct } from "../interfaces/product.interface";
 
+import { products } from "../mock/products";
 
 const ShoppingPage = () => {
   return (
     <div>
-      <h1>ShoppingPage</h1>
+      <h1>Shopping Page</h1>
       <hr />
-      <ProductCard />
+      <div className="product-list">
+        { products.map((product: IProduct) => (
+            <ProductCard product={product} />
+        ))}
+      </div>
     </div>
   );
 };
