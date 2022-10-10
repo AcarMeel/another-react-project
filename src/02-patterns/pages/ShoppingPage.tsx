@@ -1,4 +1,4 @@
-import { ProductCard } from "../components/ProductCard";
+import { ProductCard } from "../components";
 import { IProduct } from "../interfaces/product.interface";
 
 import { products } from "../mock/products";
@@ -9,8 +9,12 @@ const ShoppingPage = () => {
       <h1>Shopping Page</h1>
       <hr />
       <div className="product-list">
-        { products.map((product: IProduct) => (
-            <ProductCard product={product} />
+        {products.map((product: IProduct) => (
+          <ProductCard key={product.id} product={product}>
+            <ProductCard.Image />
+            <ProductCard.Title />
+            <ProductCard.Buttons />
+          </ProductCard>
         ))}
       </div>
     </div>
