@@ -3,7 +3,7 @@ import { ProductCtx } from "./ProductCard";
 import styles from "../styles/styles.module.css";
 import { IProductButtons } from "../interfaces/product.interface";
 
-export const ProductButtons = ({ className }: IProductButtons) => {
+export const ProductButtons = ({ className, style }: IProductButtons) => {
   const { counter, increaseBy } = useContext(ProductCtx);
   return (
     <div className={`${styles.buttonsContainer} ${className}`}>

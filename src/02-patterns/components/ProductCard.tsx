@@ -6,7 +6,7 @@ import { createContext } from "react";
 export const ProductCtx = createContext({} as IProductCtxProps);
 const { Provider } = ProductCtx;
 
-export const ProductCard = ({ product, children, className }: Props) => {
+export const ProductCard = ({ product, children, className, style }: Props) => {
   const { counter, increaseBy } = useProduct();
 
   return (
@@ -17,7 +17,8 @@ export const ProductCard = ({ product, children, className }: Props) => {
         product,
       }}
     >
-      <div className={`${styles.productCard} ${className}`}>
+      <div className={`${styles.productCard} ${className}`}
+      style={style}>
         {children}
       </div>
     </Provider>

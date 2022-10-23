@@ -10,6 +10,7 @@ export interface Props {
   product: IProduct;
   children?: ReactElement | Array<ReactElement>;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface IProductCtxProps {
@@ -21,13 +22,16 @@ export interface IProductCtxProps {
 export interface ITitleProps {
   title?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface IImageProps {
   image?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface IProductButtons {
   className?: string;
+  style?: React.CSSProperties;
 }
