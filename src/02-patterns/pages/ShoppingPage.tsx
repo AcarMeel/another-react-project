@@ -3,6 +3,8 @@ import { IProduct } from "../interfaces/product.interface";
 
 import { products } from "../mock/products";
 
+import '../styles/custom-styles.css';
+
 const ShoppingPage = () => {
   return (
     <div>
@@ -10,10 +12,10 @@ const ShoppingPage = () => {
       <hr />
       <div className="product-list">
         {products.map((product: IProduct) => (
-          <ProductCard key={product.id} product={product}>
-            <ProductCard.Image />
-            <ProductCard.Title />
-            <ProductCard.Buttons />
+          <ProductCard className="bg-dark" key={product.id} product={product}>
+            <ProductCard.Image className="custom-image" />
+            <ProductCard.Title className="text-white"/>
+            <ProductCard.Buttons className="custom-buttons" />
           </ProductCard>
         ))}
       </div>
