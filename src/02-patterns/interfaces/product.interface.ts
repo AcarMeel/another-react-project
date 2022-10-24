@@ -11,6 +11,19 @@ export interface Props {
   children?: ReactElement | Array<ReactElement>;
   className?: string;
   style?: React.CSSProperties;
+  onChange?: (args: IOnChangeArgs) => void;
+  value?: number;
+}
+
+export interface IOnChangeArgs {
+  product: IProduct;
+  count: number;
+}
+
+export interface IUseProductArgs {
+  product: IProduct;
+  onChange?: (args: IOnChangeArgs) => void;
+  value?: number;
 }
 
 export interface IProductCtxProps {
@@ -34,4 +47,8 @@ export interface IImageProps {
 export interface IProductButtons {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface IProductInCart extends IProduct {
+  count: number;
 }

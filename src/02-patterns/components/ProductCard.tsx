@@ -6,9 +6,9 @@ import { createContext } from "react";
 export const ProductCtx = createContext({} as IProductCtxProps);
 const { Provider } = ProductCtx;
 
-export const ProductCard = ({ product, children, className, style }: Props) => {
-  const { counter, increaseBy } = useProduct();
-
+export const ProductCard = ({ product, children, className, style, onChange, value }: Props) => {
+  const { counter, increaseBy } = useProduct({onChange, product, value});
+  
   return (
     <Provider
       value={{

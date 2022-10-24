@@ -6,7 +6,7 @@ import { IProductButtons } from "../interfaces/product.interface";
 export const ProductButtons = ({ className, style }: IProductButtons) => {
   const { counter, increaseBy } = useContext(ProductCtx);
   return (
-    <div className={`${styles.buttonsContainer} ${className}`}>
+    <div style={style} className={`${styles.buttonsContainer} ${className}`}>
       <button onClick={() => increaseBy(-1)} className={styles.buttonMinus}>
         -
       </button>
