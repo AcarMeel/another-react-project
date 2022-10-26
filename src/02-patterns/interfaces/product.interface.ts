@@ -37,6 +37,7 @@ export interface IProductCtxProps {
   increaseBy: (value: number) => void;
   counter: number;
   product: IProduct;
+  maxCount?: number;
 }
 
 export interface ITitleProps {

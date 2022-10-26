@@ -12,7 +12,7 @@
 
 .productImg {
     border-radius: 15px 15px 0px 0px;
-    width: 100%;
+    width: calc(100% - 30px);
 }
 
 .productDescription {
@@ -59,4 +59,15 @@
 
 .buttonAdd:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.disabled {
+    border: 1px solid#dedede !important;
+    border-left: 1px solid white !important;
+    background-color: #dedede;
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    background-color: #dedede;
 }
