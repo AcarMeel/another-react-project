@@ -24,11 +24,12 @@ const ShoppingPage = () => {
           }}
         >
           {
-            () => (
+            ({ reset }) => (
                 <>
                     <ProductCard.Image className="custom-image" />
                     <ProductCard.Title className="text-white" />
                     <ProductCard.Buttons className="custom-buttons" />
+                    <button onClick={reset}>Reset</button>
                 </>
             )
           }

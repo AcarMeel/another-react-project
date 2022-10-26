@@ -1,5 +1,3 @@
-
-
 export interface IProduct {
   id: string;
   title: string;
@@ -8,7 +6,7 @@ export interface IProduct {
 
 export interface Props {
   product: IProduct;
-  children: () => JSX.Element;
+  children: (args: IProductCardHandlers) => JSX.Element;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (args: IOnChangeArgs) => void;
@@ -59,4 +57,14 @@ export interface IProductButtons {
 
 export interface IProductInCart extends IProduct {
   count: number;
+}
+
+export interface IProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: IProduct;
+
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }
