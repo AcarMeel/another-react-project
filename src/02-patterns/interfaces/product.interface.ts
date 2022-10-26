@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+
 
 export interface IProduct {
   id: string;
@@ -8,11 +8,17 @@ export interface IProduct {
 
 export interface Props {
   product: IProduct;
-  children?: ReactElement | Array<ReactElement>;
+  children: () => JSX.Element;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (args: IOnChangeArgs) => void;
   value?: number;
+  initialValues?: IInitialValues;
+}
+
+export interface IInitialValues {
+  count?: number;
+  maxCount?: number;
 }
 
 export interface IOnChangeArgs {
@@ -24,6 +30,7 @@ export interface IUseProductArgs {
   product: IProduct;
   onChange?: (args: IOnChangeArgs) => void;
   value?: number;
+  initialValues?: IInitialValues;
 }
 
 export interface IProductCtxProps {
