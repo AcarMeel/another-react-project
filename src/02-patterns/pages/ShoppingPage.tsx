@@ -1,5 +1,4 @@
 import { ProductCard } from "../components";
-import { IProduct } from "../interfaces/product.interface";
 
 import { products } from "../mock/products";
 
